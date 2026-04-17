@@ -25,8 +25,8 @@ const Game = () => {
 
   return (
     <div className="space-y-8">
-      <div className="text-center">
-        <h1 className="text-2xl font-bold text-amber-700 dark:text-amber-400">
+      <div className="text-center py-4">
+        <h1 className="text-2xl font-bold text-amber-700 dark:text-amber-400 font-['Cinzel'] mb-1">
           {currentRoom.nombre}
         </h1>
         <p className="text-lg text-stone-600 dark:text-stone-400">
@@ -35,7 +35,7 @@ const Game = () => {
       </div>
       
       <div className="bg-stone-200 dark:bg-stone-800 p-6 rounded-xl">
-        <p className="text-lg leading-relaxed">
+        <p className="text-lg leading-relaxed text-stone-800 dark:text-stone-200 font-serif whitespace-pre-line">
           {currentRoom.descripcion}
         </p>
       </div>
@@ -50,9 +50,9 @@ const Game = () => {
               key={dir}
               onClick={() => isAvailable && move(dir)}
               disabled={!isAvailable}
-              className={`py-4 px-6 rounded-lg font-semibold transition-colors ${
+              className={`py-4 px-6 rounded-lg font-semibold transition-colors uppercase ${
                 isAvailable
-                  ? 'bg-amber-600 hover:bg-amber-700 text-white'
+                  ? 'bg-amber-600 hover:bg-amber-700 text-white cursor-pointer'
                   : 'bg-stone-300 dark:bg-stone-700 text-stone-500 dark:text-stone-500 cursor-not-allowed'
               }`}
             >

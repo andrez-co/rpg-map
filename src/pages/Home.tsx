@@ -18,11 +18,12 @@ const Home = () => {
   return (
     <div className="flex flex-col items-center justify-center py-12">
       <div className="bg-stone-200 dark:bg-stone-800 p-8 rounded-xl shadow-lg max-w-md w-full">
-        <h1 className="text-3xl font-bold text-center mb-2 text-amber-700 dark:text-amber-400">
-          Aventura RPG
+        
+        <h1 className="text-3xl font-bold text-center mb-2 text-amber-700 dark:text-amber-400 font-['Cinzel']">
+          Viaje en el tiempo
         </h1>
         <p className="text-center mb-8 text-stone-600 dark:text-stone-400">
-          Explora las profundidades de la cueva
+          Ingresa a la nave y forja tu propio destino
         </p>
         
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -31,7 +32,7 @@ const Home = () => {
               htmlFor="playerName" 
               className="block text-sm font-medium mb-2"
             >
-              Nombre del Jugador
+              Nombre del Héroe
             </label>
             <input
               type="text"

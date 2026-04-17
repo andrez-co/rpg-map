@@ -13,33 +13,33 @@ export interface Room {
 export const worldMap: Room[] = [
   {
     id: "entrada",
-    nombre: "Entrada de la Cueva",
-    descripcion: "Un arco de piedra antiguo cubierto de musgo. El aire es frío.",
-    direcciones: { norte: "pasillo", sur: null, este: null, oeste: null }
+    nombre: "Pasadizo Temporal",
+    descripcion: "Mi máquina del tiempo falló y aterricé repentinamente en otra época. Estoy en un pasillo de piedra muy estrecho, y todo a mi alrededor está lleno de escombros antiguos.\n\n«La brújula de la nave indica que la única salida libre es por el sur. Toca ir por ahí...»",
+    direcciones: { norte: null, sur: "templo", este: null, oeste: null }
   },
   {
-    id: "pasillo",
-    nombre: "Pasillo de las Sombras",
-    descripcion: "Un pasillo largo con antorchas que parpadean. Hay puertas a los lados.",
-    direcciones: { norte: "trono", sur: "entrada", este: "biblioteca", oeste: "celda" }
+    id: "templo",
+    nombre: "Templo del Origen",
+    descripcion: "Acabo de salir del pasillo y llegué a una especie de templo gigante abandonado. Hay enormes estatuas de monstruos extraños que imponen bastante respeto.\n\n«Veo varios caminos distintos. Voy a echar un vistazo por aquí, pero si algo sale mal, sé que puedo regresar al norte.»",
+    direcciones: { norte: "entrada", sur: "biblioteca", este: "trono", oeste: "celda" }
   },
   {
     id: "biblioteca",
-    nombre: "Gran Biblioteca",
-    descripcion: "Miles de libros polvorientos llenan las paredes.",
-    direcciones: { norte: null, sur: null, este: null, oeste: "pasillo" }
+    nombre: "Biblioteca Perdida",
+    descripcion: "Entré a un cuarto lleno de rocas talladas y libros tan antiguos que se rompen con solo tocarlos. Qué mala suerte; un derrumbe tapó por completo las escaleras y no puedo pasar.\n\n«Bueno, parece que no hay paso por aquí. Creo que lo mejor será volver hacia el templo.»",
+    direcciones: { norte: "templo", sur: null, este: null, oeste: null }
   },
   {
     id: "celda",
-    nombre: "Celda Olvidada",
-    descripcion: "Una habitación pequeña y húmeda con marcas en las paredes.",
-    direcciones: { norte: null, sur: null, este: "pasillo", oeste: null }
+    nombre: "Prisión Fósil",
+    descripcion: "El piso de este lugar está repleto de huesos enormes; seguramente son de algún animal prehistórico. A lo lejos escucho gritos y mucho ruido. Parece una tribu salvaje y suenan bastante violentos.\n\n«Esto se ve mal. Ni loco sigo por ahí, será mejor darme la vuelta y regresar antes de que me vean.»",
+    direcciones: { norte: null, sur: null, este: "templo", oeste: null }
   },
   {
     id: "trono",
-    nombre: "Salón del Trono",
-    descripcion: "Un salón majestuoso. Un trono de hueso preside la estancia.",
-    direcciones: { norte: null, sur: "pasillo", este: null, oeste: null }
+    nombre: "Altar del Dios Sol",
+    descripcion: "Llegué a un altar que brilla con luces extrañas, y alrededor hay manchas que parecen de algún antiguo ritual. Todo está muy silencioso, y hay una enorme pared de piedra negra bloqueando el camino.\n\n«Al parecer no hay salida por este lado. No veo cómo pasar este muro gigante, me tocará regresar.»",
+    direcciones: { norte: null, sur: null, este: null, oeste: "templo" }
   }
 ];
 
