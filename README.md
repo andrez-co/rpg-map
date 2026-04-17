@@ -1,8 +1,8 @@
-# Aventura RPG - Sistema de Navegación
+# Viaje en el Tiempo - Sistema de Navegación RPG
 
 ## Descripción General
 
-Este es un sistema de navegación para un juego de rol (RPG) desarrollado con React, TypeScript, Vite y Tailwind CSS. El proyecto implementa un sistema de exploración de salas utilizando React Router v7 para la navegación y Zustand para el manejo del estado global.
+Este es un sistema de navegación para un juego interactivo de rol (RPG) ambientado en un naufragio temporal, desarrollado con React, TypeScript, Vite y Tailwind CSS. El proyecto implementa un sistema de exploración de recámaras utilizando React Router v7 para la navegación y Zustand para el manejo del estado global.
 
 ## Tecnologías Utilizadas
 
@@ -63,20 +63,20 @@ export interface Room {
 
 | ID | Nombre | Descripción |
 |----|--------|-------------|
-| entrada | Entrada de la Cueva | Un arco de piedra antiguo cubierto de musgo |
-| pasillo | Pasillo de las Sombras | Un pasillo largo con antorchas que parpadean |
-| biblioteca | Gran Biblioteca | Miles de libros polvorientos |
-| celda | Celda Olvidada | Una habitación pequeña y húmeda |
-| trono | Salón del Trono | Un salón majestuoso con un trono de hueso |
+| entrada | Pasadizo Temporal | Zona de impacto de la máquina del tiempo, pasillo lleno de escombros |
+| templo | Templo del Origen | Templo gigante abandonado con estatuas de monstruos y múltiples sendas |
+| biblioteca | Biblioteca Perdida | Sala con códices antiguos y un derrumbe que impide avanzar al sur |
+| celda | Prisión Fósil | Área tapiada con huesos prehistóricos y una tribu amenazante al oeste |
+| trono | Altar del Dios Sol | Altar de rituales sellado herméticamente al este por un muro de obsidiana |
 
 ### Conexiones entre Salas
 
-```
-        [trono]
-           |
-[celda] -- [pasillo] -- [biblioteca]
-           |
+```text
         [entrada]
+           |
+[celda] -- [templo] -- [trono]
+           |
+      [biblioteca]
 ```
 
 ## Estado Global (Zustand)
@@ -190,31 +190,32 @@ const MyComponent = () => {
 ### Layout.tsx
 
 Componente de diseño principal que incluye:
-- Barra de navegación con enlaces a Inicio, Explorar y Mapa
-- Botón de toggle para cambiar entre tema claro y oscuro
-- Outlet de React Router para renderizar las páginas hijos
+- Barra de navegación con enlaces a Inicio, Explorar y Mapa (utilizando `NavLink` para resaltar la pestaña activa)
+- Botón interactivo (☀️/🌙) para cambiar entre tema claro y oscuro
+- Contenedor visual ("píldora") indicando el nombre del Héroe
+- Outlet de React Router para renderizar las páginas hijas
 
 ### Home.tsx
 
 Página de inicio que contiene:
-- Título "Aventura RPG"
-- Formulario para ingresar el nombre del jugador
-- Botón "Comenzar Aventura" que navega a `/game`
+- Título principal ("Viaje en el tiempo")
+- Formulario para ingresar en la "nave" a través del nombre del jugador
+- Botón de envío que navega a `/game`
 
 ### Game.tsx
 
-Página de exploración que muestra:
-- Nombre de la sala actual
-- Descripción de la sala
-- 4 botones de dirección (Norte, Sur, Este, Oeste)
-- Los botones se deshabilitan si no hay sala en esa dirección
+Página de exploración inmersiva que muestra:
+- Nombre de la sala actual y la ubicación del jugador
+- Monólogo interno del viajero y descripción del entorno (usando `whitespace-pre-line` para formatear saltos de línea)
+- 4 botones de dirección ortogonales
+- Los botones se deshabilitan si un obstáculo argumental (ruta `null`) bloquea el paso
 
 ### Map.tsx
 
-Página del mapa que muestra:
-- Lista de todas las salas del juego
-- Resalta la sala actual con un borde ámbar y el indicador "🚩 ESTÁS AQUÍ"
-- Muestra las conexiones de cada sala
+Página del mapa tipo "Pergamino de Rutas" que muestra:
+- Lista en cuadrícula de todas las salas
+- Resalta la sala en la que te encuentras con "🚩 ESTÁS AQUÍ"
+- Muestra las conexiones literales y textuales permitidas en cada zona
 
 ## Comandos
 

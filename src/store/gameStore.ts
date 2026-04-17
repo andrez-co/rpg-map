@@ -13,7 +13,13 @@ export const useGameStore = create<GameState>((set, get) => ({
   currentLocationId: 'entrada',
   
   setPlayerName: (name: string) => {
-    set({ playerName: name });
+    const { playerName } = get();
+    if (name !== playerName) {
+      set({ 
+        playerName: name,
+        currentLocationId: 'entrada'
+      });
+    }
   },
   
   move: (direction: 'norte' | 'sur' | 'este' | 'oeste') => {
